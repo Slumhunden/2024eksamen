@@ -8,11 +8,11 @@
         <version>3.2.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>template</groupId>
+    <groupId>eksamen.atletik</groupId>
     <artifactId>atletik-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eksamen24-backend</name>
-    <description>eksamen24-backend</description>
+    <name>atletik-backend</name>
+    <description>atletik-backend</description>
     <properties>
         <java.version>17</java.version>
     </properties>
