@@ -1,5 +1,6 @@
 package eksamen.atletik.service;
 
+import eksamen.atletik.dto.DisciplinDto;
 import eksamen.atletik.entity.DisciplinEntity;
 import eksamen.atletik.repository.DeltagerRepository;
 import eksamen.atletik.repository.DisciplinRepository;
@@ -23,18 +24,18 @@ public class DisciplinService {
     public DisciplinEntity findById(int id){
         return disciplinRepository.findById(id).orElseThrow(() -> new RuntimeException("Disciplin not found"));
     }
-    public DisciplinEntity addDisciplinEntity(DisciplinEntity disciplinEntity){
-        return disciplinRepository.save(disciplinEntity);
+    public DisciplinEntity addDisciplinEntity(DisciplinEntity disciplinDto){
+        return disciplinRepository.save(new DisciplinEntity(disciplinDto.getNavn(), disciplinDto.getResultatType()));
     }
     public DisciplinEntity deleteDisciplinEntity(int id) {
         DisciplinEntity disciplinEntity = disciplinRepository.findById(id).orElseThrow(() -> new RuntimeException("Disciplin not found"));
         disciplinRepository.deleteById(id);
         return disciplinEntity;
     }
-    public DisciplinEntity updateDisciplinEntity(int id, DisciplinEntity disciplinEntity) {
+    public DisciplinEntity updateDisciplinEntity(int id, DisciplinDto disciplinDto) {
         DisciplinEntity oldDisciplinEntity = disciplinRepository.findById(id).orElseThrow(() -> new RuntimeException("Disciplin not found"));
-        oldDisciplinEntity.setNavn(disciplinEntity.getNavn());
-        oldDisciplinEntity.setResultatType(disciplinEntity.getResultatType());
+        oldDisciplinEntity.setNavn(disciplinDto.getNavn());
+        oldDisciplinEntity.setResultatType(disciplinDto.getResultatType());
         return disciplinRepository.save(oldDisciplinEntity);
     }
 }

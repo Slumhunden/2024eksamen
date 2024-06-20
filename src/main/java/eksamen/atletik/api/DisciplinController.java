@@ -1,5 +1,6 @@
 package eksamen.atletik.api;
 
+import eksamen.atletik.dto.DisciplinDto;
 import eksamen.atletik.entity.DisciplinEntity;
 import eksamen.atletik.service.DisciplinService;
 import org.springframework.http.MediaType;
@@ -20,8 +21,8 @@ public class DisciplinController {
     public List<DisciplinEntity> getDiscipliner() {
         return disciplinService.findAll();
     }
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public DisciplinEntity createDisciplin(DisciplinEntity disciplinEntity) {
-        return disciplinService.addDisciplinEntity(disciplinEntity);
+    @PostMapping
+    public DisciplinEntity createDisciplin(@RequestBody DisciplinDto disciplinDto) {
+        return disciplinService.addDisciplinEntity(new DisciplinEntity(disciplinDto.getNavn(), disciplinDto.getResultatType()));
     }
 }
