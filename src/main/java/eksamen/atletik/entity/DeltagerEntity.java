@@ -27,4 +27,10 @@ public class DeltagerEntity {
     @JsonManagedReference
     private List<ResultatEntity> resultater;
 
+    public DeltagerEntity(String navn, String klub, String gender, int alder) {
+        this.navn = navn;
+        this.klub = klub;
+        this.gender = gender;
+        this.alder = alder;
+    }
 }

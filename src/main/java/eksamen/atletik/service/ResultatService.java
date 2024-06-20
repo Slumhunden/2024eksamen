@@ -1,6 +1,7 @@
 package eksamen.atletik.service;
 
 import eksamen.atletik.entity.ResultatEntity;
+import eksamen.atletik.repository.DisciplinRepository;
 import eksamen.atletik.repository.ResultatRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -10,9 +11,12 @@ import java.util.List;
 
 @Service
 public class ResultatService {
-    public ResultatService(ResultatRepository resultatRepository) {
+    public ResultatService(ResultatRepository resultatRepository, DisciplinRepository disciplinRepository){
     this.resultatRepository = resultatRepository;
+    this.disciplinRepository = disciplinRepository;
+
     }
+    private final DisciplinRepository disciplinRepository;
     private final ResultatRepository resultatRepository;
 
     public List<ResultatEntity> findAll() {

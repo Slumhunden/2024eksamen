@@ -7,9 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
+/*@Getter
 @Setter
-@Entity
+//@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class ExampleEntityDto {
@@ -18,9 +18,11 @@ public class ExampleEntityDto {
     //Flere variabler kan indsættes her med private foran
 
     //Constructor tager en original entity og laver en dto ud af den
-    public ExampleEntityDto(ExampleEntity exampleEntity) {
+    //public ExampleEntityDto(ExampleEntity exampleEntity) {
         this.id = exampleEntity.getId();
         this.name = exampleEntity.getName();
         //Flere variabler kan indsættes her med this.variabelnavn = exampleEntity.getVariabelnavn();
     }
 }
+
+ */

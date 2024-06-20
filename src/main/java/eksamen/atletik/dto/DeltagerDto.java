@@ -7,18 +7,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 public class DeltagerDto {
     private int id;
     private String navn;
     private String klub;
-
     private String gender;
     private int alder;
+    private List<Integer> resultatIds;
+    private List<Integer> disciplinIds;
 
     public DeltagerDto(DeltagerEntity deltagerEntity) {
         this.id = deltagerEntity.getId();
