@@ -29,6 +29,14 @@ public class ResultatController {
     public ResultatEntity addResultatEntity(@RequestBody ResultatEntity resultatEntity) {
         return resultatService.addResultatEntity(resultatEntity);
     }
+
+    // Resultat POST mapping by Disciplin and Deltager
+   /*
+    @PostMapping("/deltager/{deltagerId}/disciplin/{disciplinId}")
+    public ResultatEntity addResultatForDeltagerAndDisciplin(@PathVariable int deltagerId, @PathVariable int disciplinId, @RequestBody ResultatEntity resultatEntity) {
+        return resultatService.addResultatForDeltagerAndDisciplin(deltagerId, disciplinId, resultatEntity);
+    } */
+
     @DeleteMapping("/{id}")
     public void deleteResultatEntity(@PathVariable int id) {
         resultatService.deleteResultatEntity(id);

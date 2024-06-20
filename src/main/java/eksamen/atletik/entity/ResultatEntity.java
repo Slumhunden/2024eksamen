@@ -35,5 +35,9 @@ public class ResultatEntity {
  @ManyToOne
     @JoinColumn(name = "disciplin_id")
     private DisciplinEntity disciplinEntity;
+
+    public ResultatEntity(String s, String date, double v, DeltagerEntity deltagerEntity, DisciplinEntity disciplinEntity) {
+
+    }
 }
 

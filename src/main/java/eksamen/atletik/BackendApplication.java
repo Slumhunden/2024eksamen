@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class SpringBackendTemplateApplication {
+public class BackendApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBackendTemplateApplication.class, args);
+        SpringApplication.run(BackendApplication.class, args);
     }
 
 
@@ -42,7 +42,13 @@ public class SpringBackendTemplateApplication {
             deltagerRepository.saveAll(deltagere);
 
             List<ResultatEntity> resultater = new ArrayList<>();
-
+            resultater.add(new ResultatEntity("10.5", "2021-06-01", 10.5, deltagere.get(0), discipliner.get(0)));
+            resultater.add(new ResultatEntity("10.6", "2021-06-01", 10.6, deltagere.get(1), discipliner.get(0)));
+            resultater.add(new ResultatEntity("10.7", "2021-06-01", 10.7, deltagere.get(2), discipliner.get(0)));
+            resultater.add(new ResultatEntity("10.8", "2021-06-01", 10.8, deltagere.get(3), discipliner.get(0)));
+            resultater.add(new ResultatEntity("10.9", "2021-06-01", 10.9, deltagere.get(0), discipliner.get(0)));
+            resultater.add(new ResultatEntity("11.0", "2021-06-01", 11.0, deltagere.get(1), discipliner.get(0)));
+            resultatRepository.saveAll(resultater);
         };
     }
 }

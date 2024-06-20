@@ -1,5 +1,6 @@
 package eksamen.atletik.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -23,9 +25,13 @@ public class DeltagerEntity {
     private String gender;
     private int alder;
 
-    @OneToMany(mappedBy = "deltagerEntity")
+    @ManyToMany
     @JsonManagedReference
-    private List<ResultatEntity> resultater;
+    private List<DisciplinEntity> discipliner = new ArrayList<>();
+
+    @OneToMany(mappedBy = "deltagerEntity")
+    @JsonBackReference
+    private List<ResultatEntity> resultater = new ArrayList<>();
 
     public DeltagerEntity(String navn, String klub, String gender, int alder) {
         this.navn = navn;

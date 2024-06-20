@@ -2,6 +2,7 @@ package eksamen.atletik.api;
 
 import eksamen.atletik.entity.DeltagerEntity;
 import eksamen.atletik.service.DeltagerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -26,7 +27,12 @@ public class DisciplinEntity {
             joinColumns = @JoinColumn(name = "disciplin_id"),
             inverseJoinColumns = @JoinColumn(name = "deltager_id")
     )
-    private List<DeltagerEntity> deltagerEntities;
+    private List<DeltagerEntity> deltagerEntities = new ArrayList<>();
+
+    public void addDeltager(DeltagerEntity deltagerEntity) {
+        deltagerEntities.add(deltagerEntity);
+        deltagerEntity.getDiscipliner().add(this);
+    }
 
     public DisciplinEntity(String navn, String resultatType) {
         this.navn = navn;
