@@ -40,7 +40,7 @@ public class DeltagerService {
         DeltagerEntity oldDeltagerEntity = deltagerRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Deltager not found"));
         oldDeltagerEntity.setNavn(deltagerDto.getNavn());
         oldDeltagerEntity.setKlub(deltagerDto.getKlub());
-        oldDeltagerEntity.setGender(deltagerDto.getGender());
+        oldDeltagerEntity.setKøn(deltagerDto.getGender());
         oldDeltagerEntity.setAlder(deltagerDto.getAlder());
         return deltagerRepository.save(oldDeltagerEntity);
     }

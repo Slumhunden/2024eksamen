@@ -26,7 +26,7 @@ public class DeltagerDto {
         this.id = deltagerEntity.getId();
         this.navn = deltagerEntity.getNavn();
         this.klub = deltagerEntity.getKlub();
-        this.gender = deltagerEntity.getGender();
+        this.gender = deltagerEntity.getKøn();
         this.alder = deltagerEntity.getAlder();
     }
 }

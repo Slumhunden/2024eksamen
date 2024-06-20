@@ -1,13 +1,14 @@
 package eksamen.atletik.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -21,18 +22,13 @@ public class DisciplinEntity {
     private String navn;
     private String resultatType;
 
-    @ManyToMany
-    @JoinTable(
-            name = "deltager_disciplin",
-            joinColumns = @JoinColumn(name = "disciplin_id"),
-            inverseJoinColumns = @JoinColumn(name = "deltager_id")
-    )
-    private List<DeltagerEntity> deltagerEntities = new ArrayList<>();
+    @ManyToMany(mappedBy = "discipliner")
+    @JsonBackReference
+    private Set<DeltagerEntity> deltagerEntities = new HashSet<>();
 
-    public void addDeltager(DeltagerEntity deltagerEntity) {
-        deltagerEntities.add(deltagerEntity);
-        deltagerEntity.getDiscipliner().add(this);
-    }
+    @OneToMany(mappedBy = "disciplin")
+    @JsonBackReference
+    private Set<ResultatEntity> resultater = new HashSet<>();
 
     public DisciplinEntity(String navn, String resultatType) {
         this.navn = navn;

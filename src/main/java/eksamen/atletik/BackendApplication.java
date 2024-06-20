@@ -44,11 +44,20 @@ public class BackendApplication {
             List<ResultatEntity> resultater = new ArrayList<>();
             resultater.add(new ResultatEntity("10.5", "2021-06-01", 10.5, deltagere.get(0), discipliner.get(0)));
             resultater.add(new ResultatEntity("10.6", "2021-06-01", 10.6, deltagere.get(1), discipliner.get(0)));
-            resultater.add(new ResultatEntity("10.7", "2021-06-01", 10.7, deltagere.get(2), discipliner.get(0)));
-            resultater.add(new ResultatEntity("10.8", "2021-06-01", 10.8, deltagere.get(3), discipliner.get(0)));
-            resultater.add(new ResultatEntity("10.9", "2021-06-01", 10.9, deltagere.get(0), discipliner.get(0)));
-            resultater.add(new ResultatEntity("11.0", "2021-06-01", 11.0, deltagere.get(1), discipliner.get(0)));
+            resultater.add(new ResultatEntity("10.7", "2021-06-01", 10.7, deltagere.get(2), discipliner.get(1)));
+            resultater.add(new ResultatEntity("10.8", "2021-06-01", 10.8, deltagere.get(3), discipliner.get(2)));
+            resultater.add(new ResultatEntity("10.9", "2021-06-01", 10.9, deltagere.get(0), discipliner.get(3)));
+            resultater.add(new ResultatEntity("11.0", "2021-06-01", 11.0, deltagere.get(1), discipliner.get(4)));
             resultatRepository.saveAll(resultater);
+
+            //Tilføj discipliner til deltagere
+            deltagere.get(0).addDisciplin(discipliner.get(0));
+            deltagere.get(0).addDisciplin(discipliner.get(1));
+            deltagere.get(1).addDisciplin(discipliner.get(0));
+            deltagere.get(1).addDisciplin(discipliner.get(2));
+            deltagere.get(2).addDisciplin(discipliner.get(3));
+            deltagere.get(3).addDisciplin(discipliner.get(4));
+            deltagerRepository.saveAll(deltagere);
         };
     }
 }

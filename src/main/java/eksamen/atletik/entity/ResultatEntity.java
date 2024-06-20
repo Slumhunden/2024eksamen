@@ -1,43 +1,40 @@
 package eksamen.atletik.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.util.List;
-
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class ResultatEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String disciplin;
+    private String resultat;
+    private String dato;
+    private double score;
 
-
- @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "deltager_id")
-    @JsonManagedReference
-    private DeltagerEntity deltagerEntity;
+    @JsonBackReference
+    private DeltagerEntity deltager;
 
-    private String tid;
-    private LocalDate dato;
-    private Double distance;
-
- @ManyToOne
+    @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "disciplin_id")
-    private DisciplinEntity disciplinEntity;
+    private DisciplinEntity disciplin;
 
-    public ResultatEntity(String s, String date, double v, DeltagerEntity deltagerEntity, DisciplinEntity disciplinEntity) {
-
+    public ResultatEntity(String resultat, String dato, double score, DeltagerEntity deltager, DisciplinEntity disciplin) {
+        this.resultat = resultat;
+        this.dato = dato;
+        this.score = score;
+        this.deltager = deltager;
+        this.disciplin = disciplin;
     }
 }
-

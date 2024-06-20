@@ -1,5 +1,6 @@
 package eksamen.atletik.api;
 
+import eksamen.atletik.dto.ResultatDto;
 import eksamen.atletik.entity.ResultatEntity;
 import eksamen.atletik.service.ResultatService;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class ResultatController {
     }
 
     @GetMapping
-    public List<ResultatEntity> getResultater(){
+    public List<ResultatEntity> getResultater() {
         return resultatService.findAll();
     }
 
@@ -26,23 +27,25 @@ public class ResultatController {
     }
 
     @PostMapping
-    public ResultatEntity addResultatEntity(@RequestBody ResultatEntity resultatEntity) {
-        return resultatService.addResultatEntity(resultatEntity);
+    public ResultatEntity addResultatEntity(@RequestBody ResultatDto resultatDto) {
+        return resultatService.addResultatEntity(resultatDto);
     }
-
-    // Resultat POST mapping by Disciplin and Deltager
-   /*
-    @PostMapping("/deltager/{deltagerId}/disciplin/{disciplinId}")
-    public ResultatEntity addResultatForDeltagerAndDisciplin(@PathVariable int deltagerId, @PathVariable int disciplinId, @RequestBody ResultatEntity resultatEntity) {
-        return resultatService.addResultatForDeltagerAndDisciplin(deltagerId, disciplinId, resultatEntity);
-    } */
 
     @DeleteMapping("/{id}")
     public void deleteResultatEntity(@PathVariable int id) {
         resultatService.deleteResultatEntity(id);
     }
+
     @PutMapping("/{id}")
-    public ResultatEntity updateResultatEntity(@PathVariable int id, @RequestBody ResultatEntity resultatEntity) {
-        return resultatService.updateResultatEntity(id, resultatEntity);
+    public ResultatEntity updateResultatEntity(@PathVariable int id, @RequestBody ResultatDto resultatDto) {
+        return resultatService.updateResultatEntity(id, resultatDto);
+    }
+    @PutMapping("/deltager/{deltagerId}/resultat/{resultatId}")
+    public ResultatEntity updateResultatForDeltager(@PathVariable int deltagerId, @PathVariable int resultatId, @RequestBody ResultatDto resultatDto){
+        return resultatService.updateResultatForDeltager(deltagerId, resultatId, resultatDto);
+    }
+    @DeleteMapping("/deltager/{deltagerId}/resultat/{resultatId}")
+    public void deleteResultatForDeltager(@PathVariable int deltagerId, @PathVariable int resultatId){
+        resultatService.deleteResultatForDeltager(deltagerId, resultatId);
     }
 }
