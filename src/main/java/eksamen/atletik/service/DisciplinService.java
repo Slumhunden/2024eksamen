@@ -9,12 +9,13 @@ import java.util.List;
 
 @Service
 public class DisciplinService {
+    private final DisciplinRepository disciplinRepository;
+    private final DeltagerRepository deltagerRepository;
+
     public DisciplinService(DeltagerRepository deltagerRepository, DisciplinRepository disciplinRepository) {
         this.deltagerRepository = deltagerRepository;
         this.disciplinRepository = disciplinRepository;
     }
-    private final DeltagerRepository deltagerRepository;
-    private final DisciplinRepository disciplinRepository;
 
     public List<DisciplinEntity> findAll() {
         return disciplinRepository.findAll();

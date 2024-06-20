@@ -1,5 +1,6 @@
 package eksamen.atletik.api;
 
+import eksamen.atletik.dto.DeltagerDto;
 import eksamen.atletik.entity.DeltagerEntity;
 import eksamen.atletik.service.DeltagerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,16 +26,16 @@ public class DeltagerController {
         return deltagerService.findById(id);
     }
     @PostMapping
-    public DeltagerEntity addDeltagerEntity(@RequestBody DeltagerEntity deltagerEntity) {
-        return deltagerService.addDeltagerEntity(deltagerEntity);
+    public DeltagerEntity addDeltagerEntity(@RequestBody DeltagerDto deltagerDto) {
+        return deltagerService.addDeltagerEntity(deltagerDto);
     }
     @DeleteMapping("/{id}")
     public void deleteDeltagerEntity(@PathVariable int id) {
         deltagerService.deleteDeltagerEntity(id);
     }
     @PutMapping("/{id}")
-    public DeltagerEntity updateDeltagerEntity(@PathVariable int id, @RequestBody DeltagerEntity deltagerEntity) {
-        return deltagerService.updateDeltagerEntity(id, deltagerEntity);
+    public DeltagerEntity updateDeltagerEntity(@PathVariable int id, @RequestBody DeltagerDto deltagerDto) {
+        return deltagerService.updateDeltagerEntity(id, deltagerDto);
     }
 
 
