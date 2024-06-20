@@ -1,4 +1,4 @@
-package template.springbackendtemplate;
+package eksamen.atletik;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

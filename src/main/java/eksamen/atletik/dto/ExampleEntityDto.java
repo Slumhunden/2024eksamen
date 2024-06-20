@@ -1,4 +1,4 @@
-package template.springbackendtemplate.dto;
+package eksamen.atletik.dto;
 
 
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import template.springbackendtemplate.entity.ExampleEntity;
 
 @Getter
 @Setter

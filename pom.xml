@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>template</groupId>
-    <artifactId>spring-backend-template</artifactId>
+    <artifactId>atletik-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-backend-template</name>
-    <description>spring-backend-template</description>
+    <name>eksamen24-backend</name>
+    <description>eksamen24-backend</description>
     <properties>
         <java.version>17</java.version>
     </properties>

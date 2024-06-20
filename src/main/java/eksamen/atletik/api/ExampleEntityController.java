@@ -1,9 +1,7 @@
-package template.springbackendtemplate.api;
+package eksamen.atletik.api;
 
 
 import org.springframework.web.bind.annotation.*;
-import template.springbackendtemplate.entity.ExampleEntity;
-import template.springbackendtemplate.service.ExampleEntityService;
 
 import java.util.List;
 

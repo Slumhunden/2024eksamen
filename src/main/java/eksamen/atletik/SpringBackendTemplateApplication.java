@@ -1,4 +1,4 @@
-package template.springbackendtemplate;
+package eksamen.atletik;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
